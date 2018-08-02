@@ -1,0 +1,44 @@
+.App {
+    text-align: center;
+}
+
+.App header {
+    background-color: black;
+    height: 60px;
+    vertical-align: middle;
+}
+
+.App header h1 {
+    margin: 0px;
+    color: white;
+    font-variant-caps: small-caps;
+    font-family: serif;
+    display: inline-block;
+    line-height: 50px;
+}
+
+.App .content {
+    padding: 20px 10px 400px;
+}
+
+.App .key-generation {
+    margin-bottom: 20px;
+}
+
+.App .calendar {
+    display: inline-block;
+}
+
+.keys {
+    margin-top: 45px;
+}
+
+.keys .key {
+    font-size: 80%;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    white-space: pre;
+    margin-bottom: 10px;
+    text-align: initial;
+}
