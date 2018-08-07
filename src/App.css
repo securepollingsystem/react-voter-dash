@@ -21,7 +21,7 @@
     padding: 20px 10px 400px;
 }
 
-.App .key-generation {
+.App .keys-div {
     margin-bottom: 20px;
 }
 
@@ -33,7 +33,15 @@
     margin-top: 45px;
 }
 
-.keys .key {
+.keys textarea.key {
+    width: 600px;
+    height: 80px;
+    font-size: 80%;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+}
+
+.keys div.key {
     font-size: 80%;
     border: solid 1px #ccc;
     border-radius: 5px;

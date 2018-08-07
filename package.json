@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "blind-signatures": "^1.0.5",
     "crypto": "^1.0.1",
+    "jsencrypt": "^3.0.0-rc.1",
     "keypair": "^1.0.1",
     "moment": "^2.22.2",
     "react": "^16.4.2",
