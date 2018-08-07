@@ -17,6 +17,7 @@ class AppointmentSelector extends Component {
 
         this.onSelectDate = this.onSelectDate.bind(this);
         this.onSelectTime = this.onSelectTime.bind(this);
+        this.goBack = this.goBack.bind(this);
 
     }
 
@@ -104,6 +105,14 @@ class AppointmentSelector extends Component {
 
     }
 
+    goBack() {
+        this.setState(previousState => {
+            var newState = previousState;
+            newState.currentView = "time-selector";
+            return newState;
+        })
+    }
+
     render() {
 
         let timesDiv = (
@@ -132,7 +141,8 @@ class AppointmentSelector extends Component {
                         {timesDiv}
                     </div>
                 </div>
-                <div className="form" style={{display: this.state.currentView == "form" ? "initial" : "none"}}>
+                <div className="form" style={{display: this.state.currentView == "form" ? "block" : "none"}}>
+                    <button className="back-button" style={{position: "absolute", top: "10px", left: "10px"}} onClick={this.goBack}>Back</button>
                     <h3>Enter Your Identification Details</h3>
                     <form onSubmit={this.onSubmit}>
                         <input placeholder="First Name"></input>

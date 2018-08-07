@@ -11,6 +11,10 @@
     display: flex;
 }
 
+.AppointmentSelector .form {
+    position: relative;
+}
+
 .AppointmentSelector .calendar {
 }
 
