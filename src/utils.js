@@ -5,6 +5,17 @@ import moment from "moment";
 let DEFAULT_KEY_SIZE=2048;
 let LOCAL_STORAGE_KEY="SPSRsaKeys";
 
+export function createRSAKeys() {
+
+    var jsencrypt = new JSEncrypt({"default_key_size": DEFAULT_KEY_SIZE})
+    var keys = {
+        public: jsencrypt.getPublicKey(),
+        private: jsencrypt.getPrivateKey()
+    };
+    return keys;
+
+}
+
 export function getOrCreateRSAKeys() {
 
     var keys;
@@ -14,11 +25,7 @@ export function getOrCreateRSAKeys() {
     }
     if (!keys) {
         console.log("NO KEYS FOUND; CREATING SOME");
-        var jsencrypt = new JSEncrypt({"default_key_size": DEFAULT_KEY_SIZE})
-        keys = {
-            public: jsencrypt.getPublicKey(),
-            private: jsencrypt.getPrivateKey()
-        };
+        keys = createRSAKeys();
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(keys));
     }
     return keys;

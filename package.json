@@ -8,12 +8,16 @@
     "crypto": "^1.0.1",
     "jsencrypt": "^3.0.0-rc.1",
     "keypair": "^1.0.1",
+    "lodash": "^4.17.10",
     "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-calendar": "^2.16.1",
     "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "react-tabs": "^2.2.2"
+    "react-tabs": "^2.2.2",
+    "redux": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
