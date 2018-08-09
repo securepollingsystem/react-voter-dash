@@ -6,6 +6,24 @@ console.log("actions", actions);
 
 class KeysDisplay extends React.Component {  
 
+    constructor(props) {
+        super(props);
+
+        this.clearKeys = this.clearKeys.bind(this);
+
+    }
+
+    clearKeys() {
+        console.log("clearKeys()");
+        this.props.removeKeys();
+        //localStorage.removeItem(LOCAL_STORAGE_KEY);
+        //this.setState(previousState => {
+        //    var newState = previousState;
+        //    delete newState.keys;
+        //    return newState;
+        //})
+    }
+
     render() {
         console.log("KeysDisplay.render()", this.state, this.props);
 
@@ -27,6 +45,7 @@ class KeysDisplay extends React.Component {
                         <textarea readOnly className="key" value={privateKey || ""}></textarea>
                     </div>
                 </div>
+                <button onClick={this.clearKeys}>Clear Keys</button>
             </div>
         );
     }

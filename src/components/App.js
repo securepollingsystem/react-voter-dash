@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-import AppointmentSelector from "./AppointmentSelector";
+import AppointmentSelectionWidget from "../containers/AppointmentSelectionWidget";
 import KeysDisplay from "../containers/KeysDisplay";
 
 import {connect} from 'react-redux';  
@@ -28,14 +28,6 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-        var keys;
-        if (!this.props.keys.public || !this.props.keys.private) {
-            console.log("NO KEYS FOUND");
-            keys = createRSAKeys();
-            this.props.setKeys(keys);
-        }
-        //var keys = getOrCreateRSAKeys();
-        console.log("GOT OR CREATED KEYS", keys);
 
 
         this.state = {
@@ -45,21 +37,23 @@ class App extends Component {
         //this.generateKeys = this.generateKeys.bind(this);
         //this.blindPublicKey = this.blindPublicKey.bind(this);
 
-        this.clearKeys = this.clearKeys.bind(this);
 
 
     }
 
-    clearKeys() {
-        console.log("clearKeys()");
-        this.props.removeKeys();
-        //localStorage.removeItem(LOCAL_STORAGE_KEY);
-        //this.setState(previousState => {
-        //    var newState = previousState;
-        //    delete newState.keys;
-        //    return newState;
-        //})
+    componentDidMount() {
+
+        var keys;
+        if (!this.props.keys.public || !this.props.keys.private) {
+            console.log("NO KEYS FOUND");
+            keys = createRSAKeys();
+            this.props.setKeys(keys);
+        }
+        //var keys = getOrCreateRSAKeys();
+        console.log("GOT OR CREATED KEYS", keys);
+        
     }
+
 
 
     getSessionKey() {
@@ -104,10 +98,6 @@ class App extends Component {
         //    </div>
         //);
 
-        console.log("STORE", require("../redux-store").default.getState());
-
-        console.log("KEYS DISPLAY", KeysDisplay);
-        console.log("APP PROPS", this.props);
         return (
             <div className="App">
                 <header>
@@ -115,12 +105,11 @@ class App extends Component {
                     <h1>Voter Registration</h1>
                 </header>
                 <div className="content">
-                    <KeysDisplay />
-                    <button onClick={this.clearKeys}>Clear Keys</button>
+                    {/*<KeysDisplay />*/}
                     <div>
                         {this.state.blindedPublicKey}
                     </div>
-                    <AppointmentSelector />
+                    <AppointmentSelectionWidget />
                 </div>
             </div>
         );

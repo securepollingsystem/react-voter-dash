@@ -1,6 +1,9 @@
 import JSEncrypt from "jsencrypt";
 import BlindSignature from "blind-signatures";
 import moment from "moment";
+import axios from "axios";
+import bluebird from "bluebird";
+import faker from "faker";
 
 let DEFAULT_KEY_SIZE=2048;
 let LOCAL_STORAGE_KEY="SPSRsaKeys";
@@ -30,6 +33,35 @@ export function getOrCreateRSAKeys() {
     }
     return keys;
 
+}
+
+
+export function blindPublicKey(publicKey) {
+
+    this.key = publicKey;
+    var jsencrypt = new JSEncrypt();
+    jsencrypt.setPublicKey(publicKey);
+    this.jsencrypt = jsencrypt;
+
+    var message = this.key;
+    var N = this.jsencrypt.key.n.toString();
+    var E = this.jsencrypt.key.e.toString();
+
+    var blindData = {
+        message: message,
+        N: N,
+        E: E
+    };
+    console.log("blindData", blindData);
+    return BlindSignature.blind(blindData);
+
+}
+
+export function unblindPublicKey(blindedKey, r) {
+
+    var unblindedKey;
+
+    return unblindedKey
 }
 
 export class PublicKeyBlinder {
@@ -177,6 +209,50 @@ export function bookAppointment(args) {
 
 }
 
-export function test() {
+function createFakeTimeSlot() {
 
+    var date = faker.date.between(moment(), moment().add(1, "month"));
+    date = moment(date);
+    date.hour(Math.floor((Math.random() * 8) + 9));
+    date.minute(Math.floor((Math.random() * 4)) * 15)
+    date.seconds(0);
+
+    return {
+        id: makeid(),
+        date
+    };
 }
+function createFakeTimeSlots(n) {
+
+    var nTimeSlots = Math.floor((Math.random() * 40) + 5);
+    var timeSlots = Array(nTimeSlots).fill(null).map(n => {
+        return createFakeTimeSlot();
+    })
+    return timeSlots
+}
+
+class SPSApi {
+    constructor(url = "", options = {}) {
+        this.url = url;
+        this.mock = options.mock;
+    }
+    getTimeSlots(query) {
+        if (this.mock) {
+            // between 5 and 45
+            return bluebird.resolve(createFakeTimeSlots()).delay(2000);
+        }
+        return axios.get(this.url + "/time-slots");
+    }
+    book(data) {
+        return axios.post(this.url + "/bookings")
+    }
+    checkVerified(query) {
+    
+    }
+}
+
+export const spsApi = new SPSApi("", {mock: true});
+
+spsApi.getTimeSlots().then(function(data) {
+    console.log("data", data);
+})

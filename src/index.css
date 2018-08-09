@@ -3,3 +3,74 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+form {
+    max-width: 500px;
+    padding: 20px 12px 10px 20px;
+    font: 13px Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+form input {
+    display: block;
+    margin-bottom: 20px;
+}
+
+form label{
+    font-weight: bold;
+}
+
+form span.required{
+    color:red;
+}
+
+form .tel-number-field{
+    width: 40px;
+    text-align: center;
+}
+
+form input, form .select-field{
+    width: 48%; 
+}
+
+form input, form .tel-number-field, form .textarea-field, form .select-field{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+}
+
+form input:focus, form .tel-number-field:focus, form .textarea-field:focus, form .select-field:focus {
+    border: 1px solid #0C0;
+}
+
+form .textarea-field {
+    height:100px;
+    width: 55%;
+}
+
+form input[type=submit], form input[type=button], form button {
+    border: none;
+    padding: 8px 15px 8px 15px;
+    background: rgb(220, 0, 0);
+    color: #fff;
+    box-shadow: 1px 1px 4px #DADADA;
+    -moz-box-shadow: 1px 1px 4px #DADADA;
+    -webkit-box-shadow: 1px 1px 4px #DADADA;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+form input[type=submit]:hover, form input[type=button]:hover, form button:hover {
+    background: #EA7B00;
+    color: #fff;
+}
