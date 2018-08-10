@@ -19,6 +19,24 @@ export const setBooking = function(booking) {
     };
 }
 
+export const removeBooking = function(booking) {
+    return {
+        type: "REMOVE_BOOKING"
+    };
+}
+
+export const setBlindedR = function(r) {
+    return {
+        type: "SET_R",
+        r: r
+    };
+}
+
+export const removeBlindedR = function(r) {
+    return {
+        type: "REMOVE_R"
+    };
+}
 
 //let nextTodoId = 0
 //export const addTodo = text => ({

@@ -7,7 +7,8 @@ import KeysDisplay from "../containers/KeysDisplay";
 
 import {connect} from 'react-redux';  
 
-import {createRSAKeys, PublicKeyBlinder, fetchTimeSlots, bookAppointment} from "../utils";
+import {spsApi, fetchTimeSlots, bookAppointment} from "../utils";
+import { createRSAKeys } from "../utils/crypto";
 
 import {bindActionCreators} from 'redux';  
 import * as actions from '../actions';
@@ -17,6 +18,8 @@ import JSEncrypt from "jsencrypt";
 
 window.moment = moment;
 window.JSEncrypt = JSEncrypt;
+window.bluebird = require("bluebird");
+window.faker = require("faker");
 
 
 //let DEFAULT_KEY_SIZE=2048;
@@ -29,15 +32,12 @@ class App extends Component {
         super(props);
 
 
-
         this.state = {
             //keys: keys
         };
 
         //this.generateKeys = this.generateKeys.bind(this);
         //this.blindPublicKey = this.blindPublicKey.bind(this);
-
-
 
     }
 

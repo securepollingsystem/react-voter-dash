@@ -16,12 +16,6 @@ class KeysDisplay extends React.Component {
     clearKeys() {
         console.log("clearKeys()");
         this.props.removeKeys();
-        //localStorage.removeItem(LOCAL_STORAGE_KEY);
-        //this.setState(previousState => {
-        //    var newState = previousState;
-        //    delete newState.keys;
-        //    return newState;
-        //})
     }
 
     render() {
