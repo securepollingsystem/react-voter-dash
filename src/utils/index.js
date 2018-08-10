@@ -62,30 +62,30 @@ export function bookAppointment(args) {
     return bluebird.resolve({
             id: makeid(),
             timeSlotId: timeSlot.id,
-            date: timeSlot.date,
+            datetime: timeSlot.datetime,
             personalId: personalId,
             blindedKey: blindedKey
         }).delay(1000);
 
 }
 
-function createFakeTimeSlot() {
+export function createFakeTimeSlot() {
 
-    var date = faker.date.between(moment(), moment().add(1, "month"));
-    date = moment(date);
-    date.hour(Math.floor((Math.random() * 8) + 9));
-    date.minute(Math.floor((Math.random() * 4)) * 15)
-    date.seconds(0);
+    var datetime = faker.date.between(moment(), moment().add(1, "month"));
+    datetime = moment(datetime);
+    datetime.hour(Math.floor((Math.random() * 8) + 9));
+    datetime.minute(Math.floor((Math.random() * 4)) * 15)
+    datetime.seconds(0);
 
     return {
         id: makeid(),
-        date
+        datetime
     };
 }
-function createFakeTimeSlots(n) {
 
-    var nTimeSlots = Math.floor((Math.random() * 40) + 5);
-    var timeSlots = Array(nTimeSlots).fill(null).map(n => {
+export function createFakeTimeSlots(n) {
+
+    var timeSlots = Array(n).fill(null).map(n => {
         return createFakeTimeSlot();
     })
     return timeSlots
@@ -99,7 +99,8 @@ class SPSApi {
     getTimeSlots(query) {
         if (this.mock) {
             // between 5 and 45
-            return bluebird.resolve(createFakeTimeSlots()).delay(2000);
+            var nTimeSlots = Math.floor((Math.random() * 40) + 5);
+            return bluebird.resolve(createFakeTimeSlots(nTimeSlots)).delay(2000);
         }
         return axios.get(this.url + "/time-slots");
     }

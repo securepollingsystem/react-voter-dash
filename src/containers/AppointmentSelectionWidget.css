@@ -35,3 +35,10 @@
     display: inline-block;
 }
 
+.AppointmentSelectionWidget .react-calendar__tile.normal:not(.react-calendar__tile--active) {
+    background-color: white;
+}
+    
+.AppointmentSelectionWidget .react-calendar__month-view__days__day--weekend {
+    color: graytext;
+}
