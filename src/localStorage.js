@@ -1,4 +1,4 @@
-let LOCAL_STORAGE_KEY="SecurePollingSystemReduxStore";
+import { LOCAL_STORAGE_KEY } from "./constants";
 
 export const loadState = function() {
     try {

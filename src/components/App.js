@@ -3,11 +3,10 @@ import React, { Component } from 'react';
 import './App.css';
 
 import AppointmentSelectionWidget from "../containers/AppointmentSelectionWidget";
-import KeysDisplay from "../containers/KeysDisplay";
+//import KeysDisplay from "../containers/KeysDisplay";
 
 import {connect} from 'react-redux';  
 
-import {spsApi, fetchTimeSlots, bookAppointment} from "../utils";
 import { createRSAKeys } from "../utils/crypto";
 
 import {bindActionCreators} from 'redux';  
@@ -20,10 +19,6 @@ window.moment = moment;
 window.JSEncrypt = JSEncrypt;
 window.bluebird = require("bluebird");
 window.faker = require("faker");
-
-
-//let DEFAULT_KEY_SIZE=2048;
-let LOCAL_STORAGE_KEY="SPSRsaKeys";
 
 
 class App extends Component {

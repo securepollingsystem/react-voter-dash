@@ -6,6 +6,7 @@
     border-radius: 5px;
     padding: 10px;
     margin: auto;
+    position: relative;
 }
 
 .AppointmentSelectionWidget > * {
@@ -37,8 +38,9 @@
 
 .AppointmentSelectionWidget .react-calendar__tile.normal:not(.react-calendar__tile--active) {
     background-color: white;
+    color: black;
 }
     
 .AppointmentSelectionWidget .react-calendar__month-view__days__day--weekend {
-    color: graytext;
+    color: black;
 }

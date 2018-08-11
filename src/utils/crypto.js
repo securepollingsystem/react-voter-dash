@@ -36,11 +36,6 @@ export function blindPublicKey(publicKey) {
 
 export function unblindPublicKey(blindedKey, r, N) {
 
-    var unblindedKey;
-
-    var N = N;
-    var r = r;
-
     var unblindData = {
         signed: blindedKey,
         N: N,

@@ -17,8 +17,6 @@ function makeid() {
 
 export function fetchTimeSlots() {
 
-    var today = moment();
-    var firstDayOfMonth = today.startOf("month");
     var daysInMonth = moment().daysInMonth();
     var numDates = Math.floor(Math.random() * (daysInMonth - 1)) + 1;
     var dates = Array(numDates).fill(null).map(function(e, i) {
@@ -27,7 +25,7 @@ export function fetchTimeSlots() {
     console.log("dates", dates);
 
     dates = dates.filter(function(dateNum, pos) {
-            return dates.indexOf(dateNum) == pos;
+            return dates.indexOf(dateNum) === pos;
         })
 
     dates = dates.map(function(dateNum) {
@@ -48,7 +46,7 @@ export function fetchTimeSlots() {
         };
     })
 
-    return dates.map;
+    return timeSlots;
 
 }
 
