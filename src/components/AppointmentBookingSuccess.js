@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
 
 import Calendar from "react-calendar";
+import { makeid } from "../utils";
 
+import bluebird from "bluebird";
 import moment from "moment";
 
 class AppointmentBookingSuccess extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.checkVerified = this.checkVerified.bind(this);
+
+    }
+
+    checkVerified() {
+        
+        //utils.fetchSignedKey()
+        bluebird.resolve(makeid(200)).delay(1000)
+            .then(signedKey => {
+                //this.props.setKeys({publicSigned: signedKey})
+                this.props.onVerified(signedKey);
+            })
+
+    }
 
     render() {
 
@@ -25,6 +45,7 @@ class AppointmentBookingSuccess extends Component {
                             value={moment(booking.datetime).toDate()} />
                 </div>
                 <button onClick={this.props.removeBooking}>Clear Booking</button>
+                <button onClick={this.checkVerified}>Check Verified</button>
             </div>
         );
     }

@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../actions';
 
 import { bookAppointment, createFakeTimeSlots } from "../utils";
-import {blindPublicKey} from "../utils/crypto";
+import { createRSAKeys, blindPublicKey } from "../utils/crypto";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,6 +47,19 @@ class AppointmentSelectionWidget extends Component {
 
     }
 
+    componentDidMount() {
+        
+        var keys;
+        if (!this.props.keys.public || !this.props.keys.private) {
+            console.log("NO KEYS FOUND");
+            keys = createRSAKeys();
+            this.props.setKeys(keys);
+        }
+        //var keys = getOrCreateRSAKeys();
+        console.log("GOT OR CREATED KEYS", keys);
+
+    }
+
 
     // fetch timeslots from server and save to state
     fetchTimeSlots() {
@@ -71,8 +84,8 @@ class AppointmentSelectionWidget extends Component {
         })
     }
 
-    onSubmit(event) {
-        event.preventDefault();
+    onSubmit(formData) {
+        console.log("onSubmit()", formData);
 
         var publicKey = this.props.keys.public;
         var {blinded, r} = blindPublicKey(publicKey);
@@ -130,7 +143,11 @@ class AppointmentSelectionWidget extends Component {
         // if there is a booking stored, they have already completed the process so display the success screen
         var booking = this.props.bookings.booking;
         if (booking) {
-            view = <AppointmentBookingSuccess booking={booking} removeBooking={this.props.removeBooking} />
+            view = <AppointmentBookingSuccess
+                    booking={booking}
+                    removeBooking={this.props.removeBooking} 
+                    onVerified={signedKey => this.props.setKeys({publicSigned: signedKey})}
+                />
         }
 
         return (
