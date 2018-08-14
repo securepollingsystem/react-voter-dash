@@ -94,11 +94,7 @@ class AppointmentSelectionWidget extends Component {
         //create booking
         var bookingArgs = {
             timeSlot: this.state.selectedTimeSlot,
-            personalId: {
-                firstName: "First Name",
-                lastName: "lastName",
-                email: "email"
-            },
+            personalId: formData,
             blindedKey: blinded.toString()
         };
         bookAppointment(bookingArgs)

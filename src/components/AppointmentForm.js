@@ -53,9 +53,9 @@ class AppointmentForm extends Component {
                     <label htmlFor="appointment-form-email">Email Address<span className="required">*</span></label>
                     <input id="appointment-form-email" type="email" name="email" onChange={this.onInputChange} required={true} placeholder="Enter Email Address"></input>
                     <label htmlFor="appointment-form-first-name">First Name<span className="required">*</span></label>
-                    <input id="appointment-form-first-name" type="text" name="first-name" onChange={this.onInputChange} required={true} placeholder="Enter First Name"></input>
+                    <input id="appointment-form-first-name" type="text" name="firstName" onChange={this.onInputChange} required={true} placeholder="Enter First Name"></input>
                     <label htmlFor="appointment-form-last-name">Last Name<span className="required">*</span></label>
-                    <input id="appointment-form-last-name" type="text" name="last-name" onChange={this.onInputChange} required={true} placeholder="Enter Last Name"></input>
+                    <input id="appointment-form-last-name" type="text" name="lastName" onChange={this.onInputChange} required={true} placeholder="Enter Last Name"></input>
                     <h4>Confirm Appointment on {moment(timeSlot.datetime).format(DATE_FORMAT)} at {moment(timeSlot.datetime).format(TIME_FORMAT)}</h4>
                     <button type="submit" disabled={!this.state.valid}>Submit</button>
                 </form>
