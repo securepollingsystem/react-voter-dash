@@ -28,9 +28,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "create-dependencies-graph": "madge --exclude 'build/' -i docs/dependencies.svg .",
     "serve": "serve -s build -l 8990 -d"
   },
   "devDependencies": {
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "madge": "^3.2.0"
   }
 }
