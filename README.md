@@ -1,4 +1,4 @@
-<img src="/docs/dependencies.png" width="500" alt="Dependencies Graph">
+<img src="/docs/dependencies.svg" alt="Dependencies Graph">
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
