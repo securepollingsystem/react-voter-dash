@@ -1,0 +1,39 @@
+.Header {
+    background-color: black;
+    height: 60px;
+    vertical-align: middle;
+    text-align: left;
+    padding: 0px 20px;
+}
+
+.Header h2, .Header h1 {
+    margin: 0px;
+    color: white;
+    font-variant-caps: small-caps;
+    font-family: serif;
+    display: inline-block;
+    line-height: 60px;
+}
+
+.Header h1 {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.Header .dropdown {
+    float: right;
+}
+.Header .dropdown button.btn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    line-height: 60px;
+    padding: 0px;
+}
+.Header .dropdown button.btn:hover, .Header .dropdown button.btn:focus {
+    background-color: transparent;
+    color: rgba(255,255,255,0.8);
+}
