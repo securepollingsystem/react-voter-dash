@@ -1,0 +1,33 @@
+.StatementList {
+
+}
+
+.StatementList table.statement-list {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.StatementList table.statement-list, .StatementList table.statement-list td {
+    border: solid 1px #ccc;
+}
+
+.StatementList table.statement-list td {
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+.StatementList table.statement-list tbody tr:hover {
+    background-color: #bbb;
+}
+
+.StatementList table.statement-list th {
+    border: solid 1px #ccc;
+    padding: 5px;
+}
+
+
+.StatementList table.statement-list td.num-votes {
+    background-color: #888;
+    color: white;
+}

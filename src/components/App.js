@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import AppointmentSelectionWidget from "../containers/AppointmentSelectionWidget";
+import StatementList from "./StatementList";
 import Header from "./Header";
 //import KeysDisplay from "../containers/KeysDisplay";
 
@@ -90,8 +91,9 @@ class App extends Component {
         if (this.props.keys.publicSigned) {
             view = (
                 <div>
-                    <h3>Registration Complete.</h3>
                     <button onClick={() => {this.props.removeKeys();this.props.removeBooking();}}>Reset</button>
+                    <p style={{marginTop: "20px"}} />
+                    <StatementList />
                 </div>
             );
         }

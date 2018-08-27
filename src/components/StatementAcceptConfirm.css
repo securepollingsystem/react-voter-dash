@@ -1,0 +1,25 @@
+.StatementAcceptConfirm {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.StatementAcceptConfirm > div * {
+    margin: 10px;
+}
+
+.StatementAcceptConfirm .close-button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.StatementAcceptConfirm .close-button:hover {
+    border: solid 1px #ccc;
+}
