@@ -26,10 +26,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run create-dependencies-graph && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "create-dependencies-graph": "madge --exclude 'build/' -i docs/dependencies.svg .",
+    "create-dependencies-graph": "madge --exclude 'build/' -i public/dependencies.svg .",
     "serve": "serve -s build -l 8990 -d"
   },
   "devDependencies": {

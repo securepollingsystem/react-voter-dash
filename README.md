@@ -1,4 +1,4 @@
-<img src="/docs/dependencies.svg" alt="Dependencies Graph">
+<img src="http://demo.securepollingsystem.org/dependencies.svg" alt="Dependencies Graph">
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
